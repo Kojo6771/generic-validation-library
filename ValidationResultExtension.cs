@@ -16,6 +16,17 @@ public static class ValidationResultExtension
         };
     }
 
-
+    // Binds the success value of a ValidationResult to a new ValidationResult, preserving errors.
+    public static ValidationResult<TResult, TError> Bind<TSuccess, TResult, TError>(
+        this ValidationResult<TSuccess, TError> result,
+        Func<TSuccess, ValidationResult<TResult, TError>> next)
+    {
+        return result switch
+        {
+            Success<TSuccess, TError> s => next(s.value),
+            Error<TSuccess, TError> e => new Error<TResult, TError>(e.errors),
+            _ => throw new InvalidOperationException("Unknown ValidationResult")
+        };
+    }
 
 }
