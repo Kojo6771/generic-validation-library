@@ -9,6 +9,10 @@ public static class Validation
         return new Success<TSuccess, TError>(value);
     }
 
-
+    public static ValidationResult<TSuccess, TError> Error<TSuccess, TError>(TError value)
+    {
+        return new Error<TSuccess, TError>(value);
+    }
+    
     
 }
