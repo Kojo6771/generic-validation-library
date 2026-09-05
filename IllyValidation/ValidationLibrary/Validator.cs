@@ -13,7 +13,7 @@ public sealed class Validator<TInput, TOutput, TError>
         _validate = validate;
     }
 
-
+    // Validates the input using the provided validation function and returns the result.
     public ValidationResult<TOutput, TError> Validate(TInput input)
     {
         return _validate(input);

@@ -13,7 +13,8 @@ public static class Validation
     {
         return new Error<TSuccess, TError>(errors);
     }
-    
+
+    // Combines two validation results into one, aggregating errors if any.
     public static ValidationResult<TResult, TError> Combine<T1, T2, TResult, TError>(
         ValidationResult<T1, TError> result1,
         ValidationResult<T2, TError> result2,
@@ -43,6 +44,7 @@ public static class Validation
 
     }
 
+    // Combines three validation results into one, aggregating errors if any.
     public static ValidationResult<TResult, TError> Combine<T1, T2, T3, TResult, TError>(
         ValidationResult<T1, TError> result1,
         ValidationResult<T2, TError> result2,
