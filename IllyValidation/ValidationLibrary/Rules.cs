@@ -38,4 +38,18 @@ public static class Rules
         return Validation.Success<string, TError>(value);
     }
 
+    // Validates that the given DateTime value is not in the future.
+    public static ValidationResult<DateTime, TError> NotInFuture<TError>(
+        DateTime value,
+        DateTime today,
+        TError error
+    )
+    {
+        if(value.Date > today.Date)
+        {
+            return Validation.Failure<DateTime, TError>(error);
+        }
+        return Validation.Success<DateTime, TError>(value);
+    }
+
 }
