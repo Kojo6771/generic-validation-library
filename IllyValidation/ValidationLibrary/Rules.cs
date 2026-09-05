@@ -52,4 +52,17 @@ public static class Rules
         return Validation.Success<DateTime, TError>(value);
     }
 
+    // Validates that the given DateTime value is not before the specified minimum date.
+    public static ValidationResult<DateTime, TError> NotBefore<TError>(
+        DateTime value,
+        DateTime minimumDate,
+        TError error
+    )
+    {
+        if(value.Date < minimumDate.Date)
+        {
+            return Validation.Failure<DateTime, TError>(error);
+        }
+        return Validation.Success<DateTime, TError>(value);
+    }
 }
