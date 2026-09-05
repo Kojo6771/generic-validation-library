@@ -27,6 +27,13 @@ public sealed class Validator<TInput, TOutput, TError>
         );
     }
 
-    
+    // Chains the current validator with another validator that depends on the output of the current one.
+    public Validator<TInput, TNewOutput, TError> AndThen<TNewOutput>(
+        Func<TOutput, ValidationResult<TNewOutput, TError>> next)
+    {
+        return new Validator<TInput, TNewOutput, TError>(
+            input => _validate(input).Bind(next)
+        );
+    }
 
 }
