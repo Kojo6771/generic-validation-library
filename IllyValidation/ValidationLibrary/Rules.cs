@@ -24,6 +24,18 @@ public static class Rules
         return Validation.Success<T, TError>(value.Value);
     }
 
-    
+    // Validates that the given string does not exceed the specified maximum length.
+    public static ValidationResult<string, TError> MaxLength<TError>(
+        string value,
+        int maximumLength,
+        TError error
+    )
+    {
+        if(value.Length > maximumLength)
+        {
+            return Validation.Failure<string, TError>(error);
+        }
+        return Validation.Success<string, TError>(value);
+    }
 
 }
