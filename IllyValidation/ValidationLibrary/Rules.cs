@@ -12,4 +12,18 @@ public static class Rules
         }
         return Validation.Success<string, TError>(value!);
     }
+
+
+    // Validates that the given nullable value type has a value.
+    public static ValidationResult<T, TError> RequiredValue<T, TError>(T? value, TError error) where T : struct
+    {
+        if (!value.HasValue)
+        {
+            return Validation.Failure<T, TError>(error);
+        }
+        return Validation.Success<T, TError>(value.Value);
+    }
+
+    
+
 }
