@@ -1,32 +1,49 @@
 namespace ValidationLibrary;
 
-public static class ValidationResultExtension
+public static class ValidationResultExtensions
 {
-    // Maps the success value of a ValidationResult to a new value, preserving errors.
-    public static ValidationResult<TResult, TError> Map<TSuccess, TResult,TError>(
+    // Extension methods for working with validation results.
+    public static ValidationResult<TResult, TError> Map<TSuccess, TResult, TError>(
         this ValidationResult<TSuccess, TError> result,
         Func<TSuccess, TResult> map)
     {
         return result switch
         {
-          Success<TSuccess, TError> s => new Success<TResult, TError>(map(s.value)),
-          Error<TSuccess, TError> e => new Error<TResult, TError>(e.errors),
+            Success<TSuccess, TError> success =>
+                new Success<TResult, TError>(
+                    map(success.Value)
+                ),
 
-          _ => throw new InvalidOperationException("Unknown ValidationResult")
+            Error<TSuccess, TError> error =>
+                new Error<TResult, TError>(
+                    error.Errors
+                ),
+
+            _ => throw new InvalidOperationException(
+                "Unknown validation result."
+            )
         };
     }
 
-    // Binds the success value of a ValidationResult to a new ValidationResult, preserving errors.
+    // Transforms the value of a successful validation result using the specified mapping function.
+    // If the result is an error, it remains unchanged.
     public static ValidationResult<TResult, TError> Bind<TSuccess, TResult, TError>(
         this ValidationResult<TSuccess, TError> result,
         Func<TSuccess, ValidationResult<TResult, TError>> next)
     {
         return result switch
         {
-            Success<TSuccess, TError> s => next(s.value),
-            Error<TSuccess, TError> e => new Error<TResult, TError>(e.errors),
-            _ => throw new InvalidOperationException("Unknown ValidationResult")
+            Success<TSuccess, TError> success =>
+                next(success.Value),
+
+            Error<TSuccess, TError> error =>
+                new Error<TResult, TError>(
+                    error.Errors
+                ),
+
+            _ => throw new InvalidOperationException(
+                "Unknown validation result."
+            )
         };
     }
-
 }

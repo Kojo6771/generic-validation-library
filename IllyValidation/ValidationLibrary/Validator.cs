@@ -1,33 +1,34 @@
 namespace ValidationLibrary;
 
+
 public sealed class Validator<TInput, TOutput, TError>
 {
-    // The function that performs the validation
+
     private readonly Func<TInput, ValidationResult<TOutput, TError>> _validate;
 
-    // Validator constructor
+    // Creates a new validator with the specified validation function.
     public Validator(
-        Func<TInput, ValidationResult<TOutput, TError>> validate
-    )
+        Func<TInput, ValidationResult<TOutput, TError>> validate)
     {
         _validate = validate;
     }
 
-    // Validates the input using the provided validation function and returns the result.
-    public ValidationResult<TOutput, TError> Validate(TInput input)
+    public ValidationResult<TOutput, TError> Validate(
+        TInput input)
     {
         return _validate(input);
     }
 
-    // Maps the output of the validator to a new output type, preserving errors.
-    public Validator<TInput, TNewOutput, TError> Map<TNewOutput>(Func<TOutput, TNewOutput> map)
+    // Creates a validator that transforms the output of the current validation step using the provided mapping function.
+    public Validator<TInput, TNewOutput, TError> Map<TNewOutput>(
+        Func<TOutput, TNewOutput> map)
     {
         return new Validator<TInput, TNewOutput, TError>(
             input => _validate(input).Map(map)
         );
     }
 
-    // Chains the current validator with another validator that depends on the output of the current one.
+    // Creates a validator that applies another validation step after the current one, chaining the results.
     public Validator<TInput, TNewOutput, TError> AndThen<TNewOutput>(
         Func<TOutput, ValidationResult<TNewOutput, TError>> next)
     {
@@ -35,5 +36,4 @@ public sealed class Validator<TInput, TOutput, TError>
             input => _validate(input).Bind(next)
         );
     }
-
 }

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ValidationDemo/ValidationDemo.csproj" />
+  <Project Path="ValidationLibrary/ValidationLibrary.csproj" />
+</Solution>

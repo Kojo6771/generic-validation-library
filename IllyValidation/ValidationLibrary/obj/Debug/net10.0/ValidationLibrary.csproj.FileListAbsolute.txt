@@ -1,0 +1,12 @@
+C:\Users\k_wad\Documents\GitHub\C-technical-test\IllyValidation\ValidationLibrary\bin\Debug\net10.0\ValidationLibrary.deps.json
+C:\Users\k_wad\Documents\GitHub\C-technical-test\IllyValidation\ValidationLibrary\bin\Debug\net10.0\ValidationLibrary.dll
+C:\Users\k_wad\Documents\GitHub\C-technical-test\IllyValidation\ValidationLibrary\bin\Debug\net10.0\ValidationLibrary.pdb
+C:\Users\k_wad\Documents\GitHub\C-technical-test\IllyValidation\ValidationLibrary\obj\Debug\net10.0\ValidationLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\k_wad\Documents\GitHub\C-technical-test\IllyValidation\ValidationLibrary\obj\Debug\net10.0\ValidationLibrary.AssemblyInfoInputs.cache
+C:\Users\k_wad\Documents\GitHub\C-technical-test\IllyValidation\ValidationLibrary\obj\Debug\net10.0\ValidationLibrary.AssemblyInfo.cs
+C:\Users\k_wad\Documents\GitHub\C-technical-test\IllyValidation\ValidationLibrary\obj\Debug\net10.0\ValidationLibrary.csproj.CoreCompileInputs.cache
+C:\Users\k_wad\Documents\GitHub\C-technical-test\IllyValidation\ValidationLibrary\obj\Debug\net10.0\ValidationLibrary.sourcelink.json
+C:\Users\k_wad\Documents\GitHub\C-technical-test\IllyValidation\ValidationLibrary\obj\Debug\net10.0\ValidationLibrary.dll
+C:\Users\k_wad\Documents\GitHub\C-technical-test\IllyValidation\ValidationLibrary\obj\Debug\net10.0\refint\ValidationLibrary.dll
+C:\Users\k_wad\Documents\GitHub\C-technical-test\IllyValidation\ValidationLibrary\obj\Debug\net10.0\ValidationLibrary.pdb
+C:\Users\k_wad\Documents\GitHub\C-technical-test\IllyValidation\ValidationLibrary\obj\Debug\net10.0\ref\ValidationLibrary.dll

@@ -1,11 +1,13 @@
 namespace ValidationDemo;
 
+
 // Represents the different types of validation errors that can occur for a person's input data.
-public enum PersonalValidation
+public enum PersonValidation
 {
-    NameRequired,
-    NameTooLong,
-    DOBRequired,
+    NameMustBeEntered,
+    NameMaximumLengthExceeded,
+
+    DOBMustBeEntered,
     DOBCannotBeInFuture,
-    DOBCannotBefore1905
+    DOBCannotBeBefore1905
 }
